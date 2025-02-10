@@ -16,6 +16,8 @@ import (
 	"strings"
 )
 
+const VERSION = "1.0"
+
 // TIP <p>To run your code, right-click the code and select <b>Run</b>.</p> <p>Alternatively, click
 // the <icon src="AllIcons.Actions.Execute"/> icon in the gutter and select the <b>Run</b> menu item from here.</p>
 var debug = false
@@ -419,6 +421,7 @@ func main() {
 	}
 
 	if printHelp {
+		fmt.Printf("Version %s\n", VERSION)
 		fmt.Printf("Scans individual .class files, directories, JAR/WAR/ZIP files for Java class file versions.\n")
 		fmt.Printf("Optionally fails with an exit code 2 when files that are not compatible with given version constraint(s) are encountered\n")
 		fmt.Printf("JDK versions need to be a single number ( 8 = JDK 8, 9 = JDK 9, etc)\n")
