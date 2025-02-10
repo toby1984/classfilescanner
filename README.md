@@ -4,6 +4,9 @@ This is a little tool I wrote in golang to scan single files, directories, JAR, 
 files, determine the JDK version they require (and whether the class uses JDK preview features) as well as optionally
 enforce minimum/maximum constraints that must be met by all .class file.
 
+- recursively scans nested archives
+- handles multi-version JARs properly (versions not matching the requirements will be ignored) 
+
 ![Screenshot](https://github.com/toby1984/classfilescanner/blob/master/screenshot.png)
 
 # Building
