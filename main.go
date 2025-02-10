@@ -158,12 +158,20 @@ func processClassFileData(buffer []byte, fileName string) {
 	 * corresponds to Java SE $N and a minor_version item that has all 16 bits set.
 	 * For example, a class file that depends on the preview features of Java SE 17 would have version 61.65535.
 	 */
-	key := uint32(majorVersion)<<16 | uint32(minorVersion)&0xffff
+	usesPreviewFeatures := minorVersion == 0xffff
+	var key uint32
+	if usesPreviewFeatures {
+		key = uint32(majorVersion) << 16
+		minorVersion = 0
+	} else {
+		key = uint32(majorVersion)<<16 | uint32(minorVersion)&0xffff
+	}
+
 	jdk, found := classVersionMapping[key]
 	if !found {
 		jdk = "<unknown JDK>"
 	}
-	usesPreviewFeatures := minorVersion == 0xffff
+
 	if usesPreviewFeatures {
 		jdk += " (PREVIEW)"
 	}
