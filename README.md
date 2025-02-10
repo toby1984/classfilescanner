@@ -4,6 +4,8 @@ This is a little tool I wrote in golang to scan single files, directories, JAR, 
 files, determine the JDK version they require (and whether the class uses JDK preview features) as well as optionally
 enforce minimum/maximum constraints that must be met by all .class file.
 
+![<img src="screenshot.png">](https://github.com/toby1984/classfilescanner/screenshot.png)
+
 # Building
 
 I've used golang 1.23. Simply run "go build" and you're good to go.
